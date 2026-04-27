@@ -29,14 +29,18 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "BlueWave Surf" },
+      { name: "description", content: "BlueWave Surf School website to showcase classes and encourage sign-ups." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "BlueWave Surf" },
+      { property: "og:description", content: "BlueWave Surf School website to showcase classes and encourage sign-ups." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "BlueWave Surf" },
+      { name: "twitter:description", content: "BlueWave Surf School website to showcase classes and encourage sign-ups." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f66ccb88-8265-4413-a8ed-c326ae67a8e5/id-preview-3f8e6c68--f94182ff-d87d-4d4c-8d42-90b881549c2c.lovable.app-1777300390200.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f66ccb88-8265-4413-a8ed-c326ae67a8e5/id-preview-3f8e6c68--f94182ff-d87d-4d4c-8d42-90b881549c2c.lovable.app-1777300390200.png" },
     ],
     links: [
       {
