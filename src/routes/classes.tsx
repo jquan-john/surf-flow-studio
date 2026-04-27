@@ -6,92 +6,65 @@ import advanced from "@/assets/class-advanced.jpg";
 export const Route = createFileRoute("/classes")({
   head: () => ({
     meta: [
-      { title: "Surf Classes & Pricing — BlueWave Surf School" },
-      { name: "description", content: "Beginner, intermediate, and advanced surf classes. Schedules, pricing, and what's included." },
-      { property: "og:title", content: "BlueWave Classes & Pricing" },
-      { property: "og:description", content: "Find the right surf class for your level." },
-      { property: "og:image", content: intermediate },
+      { title: "Lessons - BlueWave Surf School" },
+      { name: "description", content: "Surf classes for beginner, intermediate, and advanced students." },
     ],
   }),
   component: ClassesPage,
 });
 
-const classes = [
-  {
-    img: beginner,
-    alt: "Beginner surf student practicing pop-ups on a longboard on the beach",
-    level: "Beginner",
-    price: "$75",
-    duration: "90 min · Group of 4",
-    schedule: "Daily · 9am, 11am, 2pm",
-    bullets: ["Soft-top board & wetsuit included", "Ocean safety basics", "Pop-up & paddling drills", "Catch your first wave!"],
-  },
-  {
-    img: intermediate,
-    alt: "Intermediate surfer paddling into a clean turquoise wave",
-    level: "Intermediate",
-    price: "$110",
-    duration: "2 hrs · Group of 3",
-    schedule: "Tue/Thu/Sat · 10am",
-    bullets: ["Wave selection & timing", "Bottom turns & trimming", "Video review session", "Performance soft-top or hard board"],
-  },
-  {
-    img: advanced,
-    alt: "Advanced surfer carving inside a barreling wave",
-    level: "Advanced",
-    price: "$150",
-    duration: "2 hrs · 1-on-1 coaching",
-    schedule: "By appointment",
-    bullets: ["Carves, snaps & airs", "Contest heat strategy", "Personalized video breakdown", "Bring your own board"],
-  },
-];
-
 function ClassesPage() {
   return (
-    <>
-      <section className="bw-container pt-16 pb-12 text-center">
-        <h1>Surf Classes</h1>
-        <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-          Three levels, one goal — get you stoked and standing up. Boards and wetsuits included on every lesson.
-        </p>
-      </section>
+    <div className="bw-container py-6">
+      <h1>Our Surf Lessons</h1>
+      <p className="text-center text-lg mb-6">We have 3 levels of classes. Pick the one that fits you!</p>
 
-      <section className="bw-container space-y-10 pb-16">
-        {classes.map((c, i) => (
-          <article
-            key={c.level}
-            className={`grid gap-8 md:grid-cols-2 items-center rounded-3xl overflow-hidden bg-card border border-border shadow-sm ${
-              i % 2 === 1 ? "md:[&>img]:order-2" : ""
-            }`}
-          >
-            <img src={c.img} alt={c.alt} width={1024} height={768} loading="lazy" className="h-72 md:h-full w-full object-cover" />
-            <div className="p-8 md:p-10">
-              <div className="flex items-baseline gap-3 flex-wrap">
-                <h2>{c.level}</h2>
-                <span className="text-2xl font-bold text-primary">{c.price}</span>
-              </div>
-              <p className="mt-2 text-sm font-semibold text-muted-foreground">
-                {c.duration} · {c.schedule}
-              </p>
-              <ul className="mt-5 space-y-2">
-                {c.bullets.map((b) => (
-                  <li key={b} className="flex gap-2 text-foreground/90">
-                    <span aria-hidden className="text-primary font-bold">✓</span>
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link to="/contact" className="cta-primary mt-7">Book {c.level}</Link>
-            </div>
-          </article>
-        ))}
-      </section>
+      <table className="w-full border-collapse border-2 mb-8 bg-white text-left" style={{ borderColor: "var(--darkblue)" }}>
+        <thead style={{ backgroundColor: "var(--teal)", color: "white" }}>
+          <tr>
+            <th className="border-2 p-2" style={{ borderColor: "var(--darkblue)" }}>Class</th>
+            <th className="border-2 p-2" style={{ borderColor: "var(--darkblue)" }}>Price</th>
+            <th className="border-2 p-2" style={{ borderColor: "var(--darkblue)" }}>Time</th>
+            <th className="border-2 p-2" style={{ borderColor: "var(--darkblue)" }}>When</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="border-2 p-2" style={{ borderColor: "var(--darkblue)" }}>Beginner</td>
+            <td className="border-2 p-2" style={{ borderColor: "var(--darkblue)" }}>$75</td>
+            <td className="border-2 p-2" style={{ borderColor: "var(--darkblue)" }}>90 min</td>
+            <td className="border-2 p-2" style={{ borderColor: "var(--darkblue)" }}>Daily, 9am / 11am / 2pm</td>
+          </tr>
+          <tr>
+            <td className="border-2 p-2" style={{ borderColor: "var(--darkblue)" }}>Intermediate</td>
+            <td className="border-2 p-2" style={{ borderColor: "var(--darkblue)" }}>$110</td>
+            <td className="border-2 p-2" style={{ borderColor: "var(--darkblue)" }}>2 hours</td>
+            <td className="border-2 p-2" style={{ borderColor: "var(--darkblue)" }}>Tue / Thu / Sat 10am</td>
+          </tr>
+          <tr>
+            <td className="border-2 p-2" style={{ borderColor: "var(--darkblue)" }}>Advanced</td>
+            <td className="border-2 p-2" style={{ borderColor: "var(--darkblue)" }}>$150</td>
+            <td className="border-2 p-2" style={{ borderColor: "var(--darkblue)" }}>2 hours</td>
+            <td className="border-2 p-2" style={{ borderColor: "var(--darkblue)" }}>By appointment</td>
+          </tr>
+        </tbody>
+      </table>
 
-      <section className="bw-container pb-20 text-center">
-        <h2>Not Sure Which Class?</h2>
-        <p className="mt-3 text-muted-foreground">We'll match you with the right level — just say hi.</p>
-        <Link to="/contact" className="cta-secondary mt-6">Ask a Coach</Link>
-      </section>
-    </>
+      <h2>Beginner Class</h2>
+      <img src={beginner} alt="Instructor teaching a beginner on the sand" width={1024} height={768} loading="lazy" className="w-full max-w-lg mx-auto border-4 rounded-md mb-2" style={{ borderColor: "var(--teal)" }} />
+      <p className="mb-6">For people who have never surfed before. We will teach you how to paddle, pop up, and catch your first wave! Surfboard and wetsuit included.</p>
+
+      <h2>Intermediate Class</h2>
+      <img src={intermediate} alt="Surfer paddling out into a wave" width={1024} height={768} loading="lazy" className="w-full max-w-lg mx-auto border-4 rounded-md mb-2" style={{ borderColor: "var(--teal)" }} />
+      <p className="mb-6">If you can already stand up on a wave, this class will help you turn and pick better waves. We even do a video review!</p>
+
+      <h2>Advanced Class</h2>
+      <img src={advanced} alt="Advanced surfer carving a big wave" width={1024} height={768} loading="lazy" className="w-full max-w-lg mx-auto border-4 rounded-md mb-2" style={{ borderColor: "var(--teal)" }} />
+      <p className="mb-6">One on one coaching for advanced surfers. We work on tricks, contest prep, and big wave technique. You bring your own board.</p>
+
+      <p className="text-center">
+        <Link to="/contact" className="cta-primary">Sign Up for a Class</Link>
+      </p>
+    </div>
   );
 }

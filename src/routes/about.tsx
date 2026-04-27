@@ -4,11 +4,8 @@ import instructors from "@/assets/instructors.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About BlueWave Surf — Our Story & Instructors" },
-      { name: "description", content: "Meet the BlueWave team: ISA-certified surf instructors passionate about ocean safety and stoke." },
-      { property: "og:title", content: "About BlueWave Surf" },
-      { property: "og:description", content: "Meet our instructors and learn what makes BlueWave special." },
-      { property: "og:image", content: instructors },
+      { title: "About Us - BlueWave Surf School" },
+      { name: "description", content: "Learn about the BlueWave instructors and our story." },
     ],
   }),
   component: AboutPage,
@@ -16,56 +13,44 @@ export const Route = createFileRoute("/about")({
 
 function AboutPage() {
   return (
-    <>
-      <section className="bw-container pt-16 pb-12 text-center">
-        <h1>About BlueWave</h1>
-        <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-          We've been teaching the joy of surfing on the California coast since 2012 — one wave at a time.
-        </p>
-      </section>
+    <div className="bw-container py-6">
+      <h1>About Us</h1>
 
-      <section className="bw-container grid gap-10 md:grid-cols-2 items-center pb-20">
-        <img
-          src={instructors}
-          alt="BlueWave surf instructors smiling on the beach with surfboards"
-          width={1280}
-          height={896}
-          loading="lazy"
-          className="rounded-2xl shadow-lg w-full h-auto"
-        />
-        <div>
-          <h2>Our Story</h2>
-          <p className="mt-4 text-muted-foreground">
-            Founded by lifelong surfer Maya Reyes, BlueWave started as a single-board lesson on a quiet stretch of Pacific Beach.
-            More than a decade later, we've taught over 8,000 students — from nervous first-timers to future competitors.
-          </p>
-          <p className="mt-4 text-muted-foreground">
-            Every coach on our team is ISA-certified, CPR-trained, and personally vetted by Maya. We believe the ocean teaches
-            confidence, patience, and respect — and we bring that into every lesson.
-          </p>
-        </div>
-      </section>
+      <img
+        src={instructors}
+        alt="Group photo of the BlueWave surf instructors on the beach"
+        width={1280}
+        height={896}
+        loading="lazy"
+        className="block mx-auto w-full max-w-2xl h-auto border-4 rounded-md mb-6"
+        style={{ borderColor: "var(--teal)" }}
+      />
 
-      <section className="bw-container pb-20">
-        <h2 className="text-center mb-10">Meet the Coaches</h2>
-        <div className="grid gap-6 md:grid-cols-3">
-          {[
-            { name: "Maya Reyes", role: "Founder & Head Coach", bio: "ISA Level 2 · 18 years coaching · Former WSL qualifier." },
-            { name: "Jordan Pike", role: "Beginner Specialist", bio: "Lifeguard certified · Loves teaching kids and total newbies." },
-            { name: "Sana Okafor", role: "Performance Coach", bio: "Trains intermediate to advanced surfers for contests." },
-          ].map((p) => (
-            <article key={p.name} className="rounded-2xl bg-card p-6 border border-border shadow-sm text-center">
-              <div className="mx-auto h-20 w-20 rounded-full mb-4" style={{ backgroundImage: "var(--gradient-ocean)" }} aria-hidden />
-              <h3>{p.name}</h3>
-              <p className="text-sm font-semibold text-primary mt-1">{p.role}</p>
-              <p className="mt-3 text-muted-foreground text-sm">{p.bio}</p>
-            </article>
-          ))}
+      <h2>Our Story</h2>
+      <p className="mb-4 text-lg">
+        BlueWave Surf School was started in 2012 by Maya Reyes. She loves surfing and wanted to share it with everyone.
+        Now we have 6 instructors and we have taught over 8,000 students!
+      </p>
+
+      <h2>Meet the Instructors</h2>
+      <div className="space-y-4 mb-6">
+        <div className="bg-white border-2 rounded-md p-4" style={{ borderColor: "var(--teal)" }}>
+          <h3>Maya Reyes - Head Coach</h3>
+          <p>Maya has been surfing for 18 years. She is ISA Level 2 certified and used to surf in WSL contests.</p>
         </div>
-        <div className="text-center mt-12">
-          <Link to="/contact" className="cta-primary">Train With Us</Link>
+        <div className="bg-white border-2 rounded-md p-4" style={{ borderColor: "var(--teal)" }}>
+          <h3>Jordan Pike - Beginner Coach</h3>
+          <p>Jordan is a lifeguard and loves teaching kids and first-time surfers. Super patient!</p>
         </div>
-      </section>
-    </>
+        <div className="bg-white border-2 rounded-md p-4" style={{ borderColor: "var(--teal)" }}>
+          <h3>Sana Okafor - Advanced Coach</h3>
+          <p>Sana trains intermediate and advanced surfers. She has helped lots of students win contests.</p>
+        </div>
+      </div>
+
+      <p className="text-center">
+        <Link to="/contact" className="cta-primary">Train With Us</Link>
+      </p>
+    </div>
   );
 }
