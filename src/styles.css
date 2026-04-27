@@ -5,10 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -28,56 +27,52 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-sand: var(--sand);
-  --color-sun: var(--sun);
-  --color-deep: var(--deep);
+  --color-teal: var(--teal);
+  --color-lightblue: var(--lightblue);
+  --color-darkblue: var(--darkblue);
   --font-script: var(--font-script);
   --font-sans: var(--font-sans);
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 6px;
 
-  /* BlueWave palette */
-  --background: oklch(0.985 0.01 220);
-  --foreground: oklch(0.22 0.06 250);
+  /* Pool-blue student-project palette */
+  --background: oklch(0.93 0.04 230);     /* light blue page */
+  --foreground: oklch(0.2 0.03 240);
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.06 250);
+  --card-foreground: oklch(0.2 0.03 240);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.06 250);
+  --popover-foreground: oklch(0.2 0.03 240);
 
-  --primary: oklch(0.55 0.16 235);            /* ocean blue */
-  --primary-foreground: oklch(0.99 0.01 220);
-  --deep: oklch(0.32 0.12 250);                /* deep navy */
-  --secondary: oklch(0.78 0.11 200);           /* turquoise */
-  --secondary-foreground: oklch(0.22 0.08 250);
-  --accent: oklch(0.86 0.15 90);               /* sun yellow */
-  --accent-foreground: oklch(0.25 0.06 250);
-  --sun: oklch(0.86 0.15 90);
-  --sand: oklch(0.94 0.05 85);
+  --primary: oklch(0.55 0.1 200);          /* teal */
+  --primary-foreground: oklch(1 0 0);
+  --teal: oklch(0.55 0.1 200);
+  --lightblue: oklch(0.93 0.04 230);
+  --darkblue: oklch(0.35 0.12 240);
 
-  --muted: oklch(0.95 0.02 220);
-  --muted-foreground: oklch(0.48 0.04 240);
+  --secondary: oklch(0.93 0.04 230);
+  --secondary-foreground: oklch(0.2 0.03 240);
+  --accent: oklch(0.85 0.05 220);
+  --accent-foreground: oklch(0.2 0.03 240);
+
+  --muted: oklch(0.95 0.02 230);
+  --muted-foreground: oklch(0.45 0.03 240);
 
   --destructive: oklch(0.6 0.22 25);
-  --destructive-foreground: oklch(0.99 0.01 220);
+  --destructive-foreground: oklch(1 0 0);
 
-  --border: oklch(0.9 0.02 220);
-  --input: oklch(0.92 0.02 220);
-  --ring: oklch(0.55 0.16 235);
+  --border: oklch(0.55 0.1 200);
+  --input: oklch(0.7 0.05 230);
+  --ring: oklch(0.55 0.1 200);
 
-  --font-script: "Segoe Script", "Bradley Hand", "Brush Script MT", cursive;
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-
-  --gradient-ocean: linear-gradient(135deg, oklch(0.55 0.16 235), oklch(0.78 0.11 200));
-  --gradient-sunset: linear-gradient(135deg, oklch(0.86 0.15 90), oklch(0.7 0.18 35));
-  --shadow-wave: 0 18px 50px -18px oklch(0.55 0.16 235 / 0.45);
+  --font-script: "Segoe Script", "Bradley Hand", "Comic Sans MS", "Brush Script MT", cursive;
+  --font-sans: "Comic Sans MS", "Trebuchet MS", Arial, sans-serif;
 }
 
 @layer base {
   * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -85,57 +80,56 @@
   }
   h1, h2, h3 {
     font-family: var(--font-script);
-    color: var(--color-deep);
-    letter-spacing: 0.5px;
+    color: var(--color-darkblue);
+    font-weight: 700;
   }
-  h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; }
-  h2 { font-size: clamp(1.8rem, 3vw, 2.75rem); line-height: 1.15; }
-  h3 { font-size: 1.4rem; }
+  h1 { font-size: 2.5rem; text-align: center; margin: 1rem 0; }
+  h2 { font-size: 2rem; text-align: center; margin: 1rem 0; }
+  h3 { font-size: 1.3rem; }
+  a { color: var(--color-darkblue); }
 }
 
 @utility bw-container {
   margin-inline: auto;
   width: 100%;
-  max-width: 72rem;
-  padding-inline: 1.25rem;
+  max-width: 60rem;
+  padding-inline: 1rem;
 }
 
 @utility cta-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.9rem 1.75rem;
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--color-primary-foreground);
-  background-image: var(--gradient-ocean);
-  border-radius: 9999px;
-  box-shadow: var(--shadow-wave);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  font-family: var(--font-script);
+  font-size: 1.1rem;
+  color: white;
+  background-color: var(--color-teal);
+  border: 2px solid var(--color-darkblue);
+  border-radius: 6px;
+  text-decoration: underline;
+  cursor: pointer;
 }
-@utility cta-primary { &:hover { transform: translateY(-2px); filter: brightness(1.05); } }
+@utility cta-primary { &:hover { background-color: var(--color-darkblue); } }
 
 @utility cta-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.85rem 1.6rem;
-  font-weight: 600;
-  color: var(--color-deep);
-  background: oklch(1 0 0 / 0.9);
-  border: 2px solid var(--color-deep);
-  border-radius: 9999px;
-  transition: background 0.2s ease, color 0.2s ease;
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  font-weight: 700;
+  color: var(--color-darkblue);
+  background-color: white;
+  border: 2px solid var(--color-teal);
+  border-radius: 6px;
+  text-decoration: underline;
+  cursor: pointer;
 }
-@utility cta-secondary { &:hover { background: var(--color-deep); color: var(--color-primary-foreground); } }
 
-@utility wave-divider {
-  display: block;
-  width: 100%;
-  height: 60px;
-  background: var(--gradient-ocean);
-  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'><path d='M0,40 C300,120 900,0 1200,60 L1200,120 L0,120 Z' fill='black'/></svg>");
-  mask-size: cover;
+/* Wavy teal header background like the screenshot */
+@utility wavy-header {
+  background-color: var(--color-teal);
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 160' preserveAspectRatio='none'><path d='M0,0 L1200,0 L1200,90 C1050,160 980,60 850,110 C720,160 650,70 520,110 C400,150 320,60 200,110 C100,150 60,80 0,120 Z' fill='black'/></svg>");
+          mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 160' preserveAspectRatio='none'><path d='M0,0 L1200,0 L1200,90 C1050,160 980,60 850,110 C720,160 650,70 520,110 C400,150 320,60 200,110 C100,150 60,80 0,120 Z' fill='black'/></svg>");
+  -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
 }

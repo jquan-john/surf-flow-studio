@@ -1,59 +1,45 @@
 import { Link, Outlet } from "@tanstack/react-router";
-import logo from "@/assets/logo.png";
 
 function Header() {
-  const linkBase =
-    "text-sm font-semibold text-foreground/80 hover:text-primary transition-colors px-3 py-2 rounded-md";
+  const linkStyle = "font-script text-2xl md:text-3xl text-white hover:underline";
   return (
-    <header className="sticky top-0 z-40 bg-background/85 backdrop-blur border-b border-border">
-      <div className="bw-container flex items-center justify-between py-3">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="BlueWave Surf logo" width={40} height={40} className="h-10 w-10" />
-          <span className="font-script text-2xl text-deep" style={{ fontFamily: "var(--font-script)" }}>
-            BlueWave Surf
-          </span>
-        </Link>
-        <nav aria-label="Primary" className="hidden md:flex items-center gap-1">
-          <Link to="/" className={linkBase} activeOptions={{ exact: true }} activeProps={{ className: linkBase + " text-primary" }}>Home</Link>
-          <Link to="/about" className={linkBase} activeProps={{ className: linkBase + " text-primary" }}>About</Link>
-          <Link to="/classes" className={linkBase} activeProps={{ className: linkBase + " text-primary" }}>Classes</Link>
-          <Link to="/contact" className={linkBase} activeProps={{ className: linkBase + " text-primary" }}>Contact</Link>
-        </nav>
-        <Link to="/contact" className="cta-primary !py-2 !px-5 text-sm">Sign Up</Link>
+    <header className="relative">
+      {/* Wavy teal banner */}
+      <div className="wavy-header h-32 md:h-36 w-full" aria-hidden />
+      {/* Overlay nav content */}
+      <div className="absolute inset-0">
+        <div className="bw-container flex items-center justify-between h-24 md:h-28 pt-2">
+          {/* Oval logo */}
+          <Link to="/" aria-label="BlueWave home" className="flex items-center justify-center bg-white border-4 border-teal rounded-full h-20 w-32 md:h-24 md:w-40 shrink-0" style={{ borderColor: "var(--teal)" }}>
+            <span style={{ fontFamily: "var(--font-script)", color: "var(--teal)" }} className="text-xl md:text-2xl">
+              BlueWave
+            </span>
+          </Link>
+          {/* Nav links */}
+          <nav aria-label="Primary" className="flex items-center gap-3 md:gap-8 pr-2 md:pr-6">
+            <Link to="/" className={linkStyle} activeOptions={{ exact: true }} activeProps={{ className: linkStyle + " italic" }} style={{ fontFamily: "var(--font-script)" }}>Home</Link>
+            <Link to="/about" className={linkStyle} activeProps={{ className: linkStyle + " italic" }} style={{ fontFamily: "var(--font-script)" }}>About</Link>
+            <Link to="/classes" className={linkStyle} activeProps={{ className: linkStyle + " italic" }} style={{ fontFamily: "var(--font-script)" }}>Lessons</Link>
+            <Link to="/contact" className={linkStyle} activeProps={{ className: linkStyle + " italic" }} style={{ fontFamily: "var(--font-script)" }}>Contact</Link>
+          </nav>
+        </div>
       </div>
-      <nav aria-label="Mobile" className="md:hidden bw-container flex flex-wrap gap-1 pb-3">
-        <Link to="/" className={linkBase} activeOptions={{ exact: true }} activeProps={{ className: linkBase + " text-primary" }}>Home</Link>
-        <Link to="/about" className={linkBase} activeProps={{ className: linkBase + " text-primary" }}>About</Link>
-        <Link to="/classes" className={linkBase} activeProps={{ className: linkBase + " text-primary" }}>Classes</Link>
-        <Link to="/contact" className={linkBase} activeProps={{ className: linkBase + " text-primary" }}>Contact</Link>
-      </nav>
     </header>
   );
 }
 
 function Footer() {
   return (
-    <footer className="mt-24 bg-deep text-primary-foreground" style={{ backgroundColor: "var(--deep)" }}>
-      <div className="bw-container py-12 grid gap-8 md:grid-cols-3">
-        <div>
-          <div className="flex items-center gap-2 mb-3">
-            <img src={logo} alt="" width={36} height={36} className="h-9 w-9" />
-            <span className="text-xl" style={{ fontFamily: "var(--font-script)" }}>BlueWave Surf</span>
-          </div>
-          <p className="text-sm opacity-80">Catch your first wave with us on the sunny coast.</p>
-        </div>
-        <div>
-          <h3 className="text-lg mb-3" style={{ color: "white" }}>Visit</h3>
-          <p className="text-sm opacity-80">123 Shoreline Drive<br />Pacific Beach, CA 92109</p>
-        </div>
-        <div>
-          <h3 className="text-lg mb-3" style={{ color: "white" }}>Contact</h3>
-          <p className="text-sm opacity-80">hello@bluewavesurf.com<br />(555) 012-WAVE</p>
-        </div>
-      </div>
-      <div className="border-t border-white/10 py-4 text-center text-xs opacity-70">
-        © {new Date().getFullYear()} BlueWave Surf School. All rights reserved.
-      </div>
+    <footer className="mt-12 border-t-4 border-teal pt-4 pb-8 text-center" style={{ borderColor: "var(--teal)" }}>
+      <p className="text-sm">
+        <strong>BlueWave Surf School</strong> · 123 Shoreline Drive, Pacific Beach CA · (555) 012-WAVE
+      </p>
+      <p className="text-xs mt-2 text-muted-foreground">
+        © {new Date().getFullYear()} BlueWave. Made by the Web Design Class 🌊
+      </p>
+      <p className="text-xs mt-1">
+        <Link to="/">Home</Link> | <Link to="/about">About</Link> | <Link to="/classes">Lessons</Link> | <Link to="/contact">Contact</Link>
+      </p>
     </footer>
   );
 }
