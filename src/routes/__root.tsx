@@ -64,6 +64,8 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
+import { SiteLayout } from "@/components/SiteLayout";
+
 function RootComponent() {
-  return <Outlet />;
+  return <SiteLayout />;
 }
